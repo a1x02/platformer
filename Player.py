@@ -1,4 +1,6 @@
 import pygame
+
+import Game
 import ScreenSetup
 import GroupSetup
 import GameVars

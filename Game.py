@@ -21,7 +21,7 @@ def game_run():
             if ButtonCreate.start_button.draw():
                 GameVars.main_menu = False
         else:
-            GameVars.world1.draw()
+            GameVars.levels[GameVars.level].draw()
 
             if GameVars.game_over == 0:
                 GroupSetup.blob_group.update()

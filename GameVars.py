@@ -25,3 +25,5 @@ world4 = World.World(WorldData.level_4)
 world5 = World.World(WorldData.level_5)
 world6 = World.World(WorldData.level_6)
 world7 = World.World(WorldData.level_7)
+
+levels = [world1, world2, world3, world4, world5, world6, world7]
