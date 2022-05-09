@@ -1,6 +1,5 @@
 import pygame
 
-import Game
 import ScreenSetup
 import GroupSetup
 import GameVars
@@ -76,18 +75,22 @@ class Player():
 
             # check for collision with enemies
             if pygame.sprite.spritecollide(self, GroupSetup.blob_group, False):
-                game_over = -1
+                GameVars.game_over = -1
 
             # check for collision with lava
             if pygame.sprite.spritecollide(self, GroupSetup.lava_group, False):
-                game_over = -1
+                GameVars.game_over = -1
+
+            # check for collision with exit
+            if pygame.sprite.spritecollide(self, GroupSetup.exit_group, False):
+                GameVars.game_over = 1
 
             # update player coordinates
             self.rect.x += dx
             self.rect.y += dy
 
 
-        elif game_over == -1:
+        elif GameVars.game_over == -1:
             self.image = self.dead_image
             if self.rect.y > 200:
                 self.rect.y -= 5
@@ -96,7 +99,7 @@ class Player():
         ScreenSetup.screen.blit(self.image, self.rect)
         # pygame.draw.rect(ScreenSetup.screen, (255, 255, 255), self.rect, 2)
 
-        return game_over
+        return GameVars.game_over
 
     def reset(self, x, y):
         self.images_right = []
